@@ -8,16 +8,16 @@ class MinStack {
     
     public void push(int val) {
         mainStack.push(val);
-        if(minStack.isEmpty()){
+        if(minStack.isEmpty() || val <= minStack.peek()){
             minStack.push(val);
-        }else{
-            minStack.push(Math.min(val, minStack.peek()));
         }
     }
     
     public void pop() {
-        mainStack.pop();
-        minStack.pop();
+        if(mainStack.peek().equals(minStack.peek()){
+           minStack.pop();
+        }   
+         mainStack.pop();
     }
     
     public int top() {
