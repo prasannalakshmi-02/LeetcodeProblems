@@ -5,10 +5,10 @@ class Solution {
         for(int i=0; i<nums.length; i++){
             if(nums[i] == 1){
                 count++;
+                if(count > ans)ans = count;
             }else{
                 count = 0;
             }
-            ans = Math.max(ans, count);
         }
         return ans;
     }
