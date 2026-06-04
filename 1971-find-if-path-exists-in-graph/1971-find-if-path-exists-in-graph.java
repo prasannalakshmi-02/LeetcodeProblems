@@ -11,19 +11,19 @@ class Solution {
             graph.get(u).add(v);
             graph.get(v).add(u);
         }
+        Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[n];
-        return dfs(source, destination, graph, visited);
-    }
-     private boolean dfs(int node, int destination, List<List<Integer>> graph, boolean[] visited) {
-        if (node == destination) {
-            return true;
-        }
-        visited[node] = true;
-        for (int neighbor : graph.get(node)) {
-            if (!visited[neighbor]) {
-                if (dfs(neighbor, destination,
-                        graph, visited)) {
-                    return true;
+        queue.offer(source);
+        visited[source] = true;
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            if (node == destination) {
+                return true;
+            }
+            for (int neighbor : graph.get(node)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.offer(neighbor);
                 }
             }
         }
