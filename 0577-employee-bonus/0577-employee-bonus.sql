@@ -1,0 +1,2 @@
+-- Write your PostgreSQL query statement below
+SELECT E.NAME , B.BONUS FROM EMPLOYEE E, BONUS B WHERE E.EMPID = B.EMPID(+) AND (B.BONUS<1000 OR B.BONUS IS NULL);
