@@ -14,6 +14,7 @@ class Solution {
         }
         return count;
     }
+    
     private void bfs(char[][] grid, int r, int c){
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{r, c});
